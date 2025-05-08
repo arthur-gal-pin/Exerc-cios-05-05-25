@@ -1,17 +1,17 @@
-let nome = "";
-let sobrenome = "";
+i = 1;
+let saldo = ((Math.floor(Math.random() * 10) * Math.floor(Math.random() * 100)) * Math.floor(Math.random() * 100)).toFixed(2);
 
-alert("Olá! Seja bem-vindo ao sistema de credenciamento.");
 do {
-    nome = (prompt(`Por favor, insira o seu nome:`));
-    if (!(isNaN(nome)) || nome === "") {
-        alert("Você inseriu uma solicitação inválida. Por favor, insira seu nome novamente.");
+    alert(saldo);
+    saque = (parseFloat(prompt(`Insira um valor para a seu ${i}º saque.`))).toFixed(2);
+    if (isNaN(saque)) {
+        alert("Você não inseriu um número real. Tente novamente");
+    } else if (saque > saldo) {
+        alert("Você está tentando sacar um valor maior do que o que você tem de saldo. Tente novamente.");
     } else {
-        sobrenome = (prompt(`Por favor, insira o seu sobrenome:`));
-        if (!(isNaN(sobrenome)) || sobrenome === "") {
-            alert("Você inseriu uma solicitação inválida. Por favor, insira seu sobrenome novamente.");
-        }
+        saldo -= saque;
+        i ++;
+        alert(`Você conseguiu fazer o saque de R$${saque}.`);
     }
-} while (nome == "" && sobrenome == "" || !(isNaN(nome)) || !(isNaN(sobrenome)))
-
-alert(`Seja bem-vindo, ${nome} ${sobrenome}.`)
+} while (saldo !== 0 || isNaN(saque))
+alert("Você sacou todo o dinheiro de sua conta.")
