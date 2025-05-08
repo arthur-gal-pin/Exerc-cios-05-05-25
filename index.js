@@ -1,18 +1,17 @@
-let valor = 0;
-let i = 0;
-let input = 0;
+let nome = "";
+let sobrenome = "";
 
-alert("Olá! Seja bem-vindo ao sistema de cálculo de compras online.")
+alert("Olá! Seja bem-vindo ao sistema de credenciamento.");
 do {
-    input = parseFloat(prompt(`Insira o valor do seu ${i+1}º produto.`));
-    if (isNaN(input) || input < 0) {
-        alert("Você inseriu um valor inválido. Tente inserir um número real positivo.")
-    } else if (input === 0) {
-        alert("Você optou por parar com as somas das suas compras.")
+    nome = (prompt(`Por favor, insira o seu nome:`));
+    if (!(isNaN(nome)) || nome === "") {
+        alert("Você inseriu uma solicitação inválida. Por favor, insira seu nome novamente.");
     } else {
-        i = i + 1;
-        valor = valor + input;
+        sobrenome = (prompt(`Por favor, insira o seu sobrenome:`));
+        if (!(isNaN(sobrenome)) || sobrenome === "") {
+            alert("Você inseriu uma solicitação inválida. Por favor, insira seu sobrenome novamente.");
+        }
     }
-} while (input > 0 || isNaN(input))
+} while (nome == "" && sobrenome == "" || !(isNaN(nome)) || !(isNaN(sobrenome)))
 
-alert(`A médias das suas ${i} compras foi de R$${valor}`);
+alert(`Seja bem-vindo, ${nome} ${sobrenome}.`)
